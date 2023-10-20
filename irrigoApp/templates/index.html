@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+    <title>Irrigo</title>
+    <link rel="stylesheet" type="text/css" href={% static "css/bootstrap.min.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "css/font-awesome.css" %}>
+    <link rel="stylesheet" href={% static "css/index.css" %}>
+
+    </head>
+    
+    <body>
+
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="index.html" class="logo">Irri<em>go</em></a>
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="main-button"><a href="#features">Register RFID</a></li>
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-banner" id="top">
+        <video autoplay muted loop id="bg-video">
+            <source src={% static "images/farmer.mp4" %} type="video/mp4" />
+        </video>
+
+        <div class="video-overlay header-text">
+            <div class="caption">
+                <h6>Make Farming Easy and Convient</h6>
+                <h2>Join <em>Innovation</em></h2>
+                <div class="main-button scroll-to-section">
+                    <a href="#features">Register RFID</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="vh-100 gradient-custom" id="features">
+        <div class="container py-5 h-100">
+          <div class="row justify-content-center align-items-center mt-4 h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                <div class="card-body p-4 p-md-5 text-center ">
+                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Regis<em>tr</em>ation</h3>
+                  <form method="POST" id="formsub">
+                    {% csrf_token %}
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+      
+                        <div class="form-outline">
+                          <input type="text" id="firstName" name="first_Name" class="form-control form-control-lg" />
+                          <label class="form-label" for="firstName">First Name</label>
+                        </div>
+      
+                      </div>
+                      <div class="col-md-6 mb-4">
+      
+                        <div class="form-outline">
+                          <input type="text" id="lastName" name="last_Name" class="form-control form-control-lg" />
+                          <label class="form-label" for="lastName">Last Name</label>
+                        </div>
+      
+                      </div>
+                    </div>
+      
+                    <div class="row">
+                      <div class="col-md-6 mb-4 pb-2">
+      
+                        <div class="form-outline">
+                          <input type="tel" id="phoneNumber" name="phone_Number" class="form-control form-control-lg" />
+                          <label class="form-label" for="phoneNumber">Phone Number</label>
+                        </div>
+      
+                      </div>
+                      <div class="col-md-6 mb-4 pb-2">
+      
+                        <div class="form-outline">
+                          <input type="numerical" id="number" name="adhar_Number" class="form-control form-control-lg" />
+                          <label class="form-label" for="number">Adhar Number</label>
+                        </div>
+      
+                      </div>
+                      
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+      
+                      <div class="form-outline">
+                        <input type="numerical" id="number" name="rfid" class="form-control form-control-lg" />
+                        <label class="form-label" for="number">RFID</label>
+                      </div>
+    
+                    </div>
+                    {% if message %}
+                      {%for text in message%}
+                        <p>{{text}}</p>
+                      {%endfor%}
+                    {%endif%}
+
+                    <div class="mt-4 pt-2">
+                      <input class="btn btn-lg main-button2"  type="submit" />
+                    </div>
+      
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <script src={% static "js/jquery-2.1.0.min.js" %}></script>
+
+    <script src={% static "js/popper.js" %}></script>
+    <script src={% static "js/bootstrap.min.js" %}></script>
+
+    <script src={% static "js/custom.js" %}></script>
+
+  </body>
+</html>
