@@ -17,16 +17,6 @@
     
     <body>
 
-    <div id="js-preloader" class="js-preloader">
-      <div class="preloader-inner">
-        <span class="dot"></span>
-        <div class="dots">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
@@ -54,7 +44,7 @@
         <div class="video-overlay header-text">
             <div class="caption">
                 <h6>Make Farming Easy and Convient</h6>
-                <h2>Join <em>Innovation</em></h2>
+                <h2>Join <em class="inno">Innovation</em></h2>
                 <div class="main-button scroll-to-section">
                     <a href="#features">Register RFID</a>
                 </div>
@@ -118,11 +108,6 @@
                       </div>
     
                     </div>
-                    {% if message %}
-                      {%for text in message%}
-                        <p>{{text}}</p>
-                      {%endfor%}
-                    {%endif%}
 
                     <div class="mt-4 pt-2">
                       <input class="btn btn-lg main-button2"  type="submit" />
@@ -140,6 +125,8 @@
 
     <script src={% static "js/popper.js" %}></script>
     <script src={% static "js/bootstrap.min.js" %}></script>
+
+    <script src={% static "js/scrollreveal.min.js" %}></script>
 
     <script src={% static "js/custom.js" %}></script>
 

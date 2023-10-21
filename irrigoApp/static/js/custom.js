@@ -121,11 +121,5 @@
 		});
 	}
 
-	$('#formsub').submit(function (event){
-		event.preventDefault();
-	})
-
-	
 
 })(window.jQuery);
-

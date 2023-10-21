@@ -602,8 +602,10 @@ em{
   font-style: normal;
   color: #138a07;
 }
-
-/* #features {
-  margin-bottom: 80px;
-} */
+@media (max-width:767px) {
+  .inno{
+    margin-left: -47px;
+  }
+  
+}
 
