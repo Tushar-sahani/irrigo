@@ -66,15 +66,19 @@
                       <div class="col-md-6 mb-4">
       
                         <div class="form-outline">
-                          <input type="text" id="firstName" name="first_Name" class="form-control form-control-lg" />
+                          {{forms.first_Name}}
+                          {% comment %} <input type="text" id="firstName" name="first_Name" class="form-control form-control-lg" /> {% endcomment %}
                           <label class="form-label" for="firstName">First Name</label>
+                          
+
                         </div>
       
                       </div>
                       <div class="col-md-6 mb-4">
       
                         <div class="form-outline">
-                          <input type="text" id="lastName" name="last_Name" class="form-control form-control-lg" />
+                          {{forms.last_Name}}
+                          {% comment %} <input type="text" id="lastName" name="last_Name" class="form-control form-control-lg" /> {% endcomment %}
                           <label class="form-label" for="lastName">Last Name</label>
                         </div>
       
@@ -85,7 +89,8 @@
                       <div class="col-md-6 mb-4 pb-2">
       
                         <div class="form-outline">
-                          <input type="tel" id="phoneNumber" name="phone_Number" class="form-control form-control-lg" />
+                          {{forms.phone_Number}}
+                          {% comment %} <input type="tel" id="phoneNumber" name="phone_Number" class="form-control form-control-lg" /> {% endcomment %}
                           <label class="form-label" for="phoneNumber">Phone Number</label>
                         </div>
       
@@ -93,8 +98,12 @@
                       <div class="col-md-6 mb-4 pb-2">
       
                         <div class="form-outline">
-                          <input type="numerical" id="number" name="adhar_Number" class="form-control form-control-lg" />
+                          {{forms.adhar_Number}}
+                          {% comment %} <input type="numerical" id="number" name="adhar_Number" class="form-control form-control-lg" /> {% endcomment %}
                           <label class="form-label" for="number">Adhar Number</label>
+                          {% comment %} {% if form.adhar_Number.errors%} {% endcomment %}
+                          {{ form.adhar_Number.errors }}
+                          {% comment %} {%endif%} {% endcomment %}
                         </div>
       
                       </div>
@@ -103,12 +112,20 @@
                     <div class="col-md-6 mb-4 pb-2">
       
                       <div class="form-outline">
-                        <input type="numerical" id="number" name="rfid" class="form-control form-control-lg" />
+                        {{forms.rfid}}
+                        {% comment %} <input type="numerical" id="number" name="rfid" class="form-control form-control-lg" /> {% endcomment %}
                         <label class="form-label" for="number">RFID</label>
                       </div>
     
                     </div>
-
+                    <div>
+                      {% if messages %}
+                        {% for message in messages %}
+                          <p style="color:green">{{message}}</p>
+                        {% endfor%}
+                      {% endif %}
+                    </div>
+                    
                     <div class="mt-4 pt-2">
                       <input class="btn btn-lg main-button2"  type="submit" />
                     </div>
