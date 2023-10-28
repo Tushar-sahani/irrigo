@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -76,10 +77,11 @@ WSGI_APPLICATION = 'irrigo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'djongo',
         'NAME': 'irrigo',
-        'USER':'root',
-        'PASSWORD':'Monu8286@%',
+        'CLIENT': {
+            'host': 'mongodb+srv://tushar:Tushar123@cluster0.ln7o1nn.mongodb.net/?retryWrites=true&w=majority',
+        }
     }
 }
 

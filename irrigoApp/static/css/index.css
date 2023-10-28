@@ -602,6 +602,10 @@ em{
   font-style: normal;
   color: #138a07;
 }
+.error{
+  color: red;
+  font-size: 10px;
+}
 @media (max-width:767px) {
   .inno{
     margin-left: -47px;

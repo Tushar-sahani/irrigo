@@ -1,8 +1,15 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from django.db import IntegrityError
+from django.db import DatabaseError
 from .models import Detail
 from .forms import DetailForms
+from .serializers import DetailSerializer
+from rest_framework import status,generics
+from rest_framework.views import APIView
+
+
+from rest_framework.response import Response
+
 # Create your views here.
 # def index(request):
 #     if request.method == 'POST':
@@ -22,12 +29,34 @@ def index(request):
         if form.is_valid():
             adhar_number = form.cleaned_data['adhar_Number']
             if Detail.objects.filter(adhar_Number=adhar_number).exists():
-                print("yes THE DATA IS EXIT THER IN DATABASE")
-                messages.error(request,"User already in database")
+                messages.error(request, "User with this Aadhar Number already exists.")
+                render('index.html')
             else:
                 form.save()
                 messages.success(request,"Your Response is Subimited")
     else:
         form = DetailForms() 
-
     return render(request, 'index.html', {'forms': form})
+
+class CheckRFIDExists(APIView):
+    def get(self, request, rfid):
+        try:
+            # Check if the rfid exists in the database
+            detail = Detail.objects.get(rfid=rfid)
+            # If it exists, return a success response
+            serializer = DetailSerializer(detail)
+            return Response({
+                'isFound':True,
+                'message': 'Data found in the database',
+                'details': serializer.data
+            }, status=status.HTTP_200_OK)
+        except Detail.DoesNotExist:
+            # If it doesn't exist, return a not found response
+            return Response({
+                'isFound':False,
+                'message': 'Data not found in the database'
+            }, status=status.HTTP_404_NOT_FOUND)
+
+
+
+

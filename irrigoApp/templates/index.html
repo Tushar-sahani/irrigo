@@ -65,21 +65,18 @@
                     <div class="row">
                       <div class="col-md-6 mb-4">
       
-                        <div class="form-outline">
-                          {{forms.first_Name}}
-                          {% comment %} <input type="text" id="firstName" name="first_Name" class="form-control form-control-lg" /> {% endcomment %}
+                        <div class="form-outline text-left">
                           <label class="form-label" for="firstName">First Name</label>
-                          
+                          {{forms.first_Name}}                          
 
                         </div>
       
                       </div>
                       <div class="col-md-6 mb-4">
       
-                        <div class="form-outline">
-                          {{forms.last_Name}}
-                          {% comment %} <input type="text" id="lastName" name="last_Name" class="form-control form-control-lg" /> {% endcomment %}
+                        <div class="form-outline text-left">
                           <label class="form-label" for="lastName">Last Name</label>
+                          {{forms.last_Name}}
                         </div>
       
                       </div>
@@ -88,35 +85,41 @@
                     <div class="row">
                       <div class="col-md-6 mb-4 pb-2">
       
-                        <div class="form-outline">
-                          {{forms.phone_Number}}
-                          {% comment %} <input type="tel" id="phoneNumber" name="phone_Number" class="form-control form-control-lg" /> {% endcomment %}
+                        <div class="form-outline text-left">
                           <label class="form-label" for="phoneNumber">Phone Number</label>
+                          
+                          {{forms.phone_Number}}
+                          {%if forms.phone_Number.errors%}
+                            {% for error in forms.phone_Number.errors%}
+                              <p class="text-danger">{{error}}</p>
+                            {% endfor %}
+                          {%endif%}
                         </div>
       
                       </div>
                       <div class="col-md-6 mb-4 pb-2">
       
-                        <div class="form-outline">
-                          {{forms.adhar_Number}}
-                          {% comment %} <input type="numerical" id="number" name="adhar_Number" class="form-control form-control-lg" /> {% endcomment %}
+                        <div class="form-outline text-left">
                           <label class="form-label" for="number">Adhar Number</label>
-                          {% comment %} {% if form.adhar_Number.errors%} {% endcomment %}
-                          {{ form.adhar_Number.errors }}
-                          {% comment %} {%endif%} {% endcomment %}
+                          {{forms.adhar_Number}}
+                          {%if forms.adhar_Number.errors%}
+                            {% for error in forms.adhar_Number.errors%}
+                              <p class="text-danger">{{error}}</p>
+                            {% endfor %}
+                          {%endif%}
                         </div>
       
                       </div>
                       
                     </div>
-                    <div class="col-md-6 mb-4 pb-2">
+                    <div class="row">
+                      <div class="col-md-6 mb-4 pb-2">
+                        <div class="form-outline text-left">
+                          <label class="form-label" for="number">RFID</label>
+                          {{forms.rfid}}
+                        </div>
       
-                      <div class="form-outline">
-                        {{forms.rfid}}
-                        {% comment %} <input type="numerical" id="number" name="rfid" class="form-control form-control-lg" /> {% endcomment %}
-                        <label class="form-label" for="number">RFID</label>
                       </div>
-    
                     </div>
                     <div>
                       {% if messages %}

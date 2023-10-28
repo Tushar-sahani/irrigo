@@ -7,7 +7,7 @@ class Detail(models.Model):
     last_Name = models.CharField(max_length=20)
     phone_Number = models.CharField(max_length=10)
     adhar_Number = models.CharField(max_length=12,primary_key=True)
-    rfid = models.IntegerField()
+    rfid = models.CharField(max_length=10)
 
     def __str__(self):
         return self.first_Name+" "+self.last_Name
