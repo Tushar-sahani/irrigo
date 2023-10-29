@@ -13,14 +13,14 @@
             "src": "build_file.sh",
             "use": "@vercel/static-build",
             "config": {
-                "distDir": "staticfiles_build"
+                "distDir": "static"
             }
         }
     ],
     "routes": [
         {
-            "src": "irrigo/static/(.*)",
-            "dest": "irrigo/static/$1"
+            "src": "irrigoApp/static/(.*)",
+            "dest": "irrigoApp/static/$1"
         },
         {
             "src": "/(.*)",
