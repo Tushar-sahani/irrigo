@@ -1,11 +1,12 @@
 {
+    "version":2,
     "builds": [
         {
             "src": "irrigo/wsgi.py",
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
-                "runtime": "python"
+                "runtime": "python3.9"
             }
         },
         {
